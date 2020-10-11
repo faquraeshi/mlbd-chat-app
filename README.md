@@ -1,6 +1,4 @@
-# Milk Safe Cloud Solution
-
-Stagin environment coming soon
+# MLDB Chat APP
 
 ## Setup
 
@@ -24,30 +22,27 @@ And to build for production, run:
 yarn build
 ```
 
-## Folder Structure
+## 🏯 Architecture & frameworks
 
-Please refer to the Nodes frontend documentation on folder structure [here](https://github.com/nodes-frontend/readme/blob/master/Documentation/folder-structure.md).
+What architecture does the project follow?
 
-### Importing
+- Unidirectional User Interface Architecture
+- Redux
 
-We have set up the project with absolute imports. Which means that instead of doing this:
+What folder organization strategy are followed?
+- Feature First Organization (you can read [great article](https://medium.com/front-end-weekly/the-secret-to-organization-in-functional-programming-913484e85fc9) about this)
 
-```tsx
-import Header from "../../../../components/Header/Header";
-```
-
-You can now import like this:
-
-```tsx
-import Header from "app/components/Header/Header";
-```
-
-## Frameworks and Libraries
+What frameworks are followed?
 
 - [Create React App](https://github.com/facebook/create-react-app)
-- [Ant Design](https://ant.design/)
-- [TypeScript](https://www.typescriptlang.org/)
+- [TypeScript](https://www.typescriptlang.org/): Programming meta-language for Javascript providing type-safety and maintainability.
+- [Rematch](https://github.com/rematch/rematch): Redux reducers and effects, all in one place.
 
-## Developers
 
-- @noha / @geekonthemove
+## 🔗 Useful links
+
+- [Trello - MLBD Chat](https://trello.com/en)
+
+## 💻 Contributors
+
+- [@azmul-ml](https://github.com/azmul-ml)
