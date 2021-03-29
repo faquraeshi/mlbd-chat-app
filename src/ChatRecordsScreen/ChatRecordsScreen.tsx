@@ -1,8 +1,6 @@
-import React, { memo, useEffect, useState } from "react";
-import { RouteComponentProps } from "react-router-dom";
+import React, { useEffect, useState, FunctionComponent } from "react";
 import { formatRoute } from "react-router-named-routes";
 import { Select, Row, Col, DatePicker } from "antd";
-import { withTranslation, WithTranslation } from "react-i18next";
 import moment from "moment";
 import styles from "./ChatRecordsScreen.module.scss";
 import * as chatRecordsApi from "./chatRecordsApi";
@@ -11,6 +9,8 @@ import { DetailsParams } from "types/routerType";
 import { TestRecordType } from "./chatRecordType";
 import ChatRecordDetails from "./ChatRecordDetails/ChatRecordDetails";
 import ChatRecordsTable from "./ChatRecordsTable/ChatRecordsTable";
+import { useTranslation } from "react-i18next";
+import { useHistory, useRouteMatch } from "react-router-dom";
 
 const { Option } = Select;
 const { RangePicker } = DatePicker;
@@ -32,7 +32,7 @@ const data = [
       contact_name: "John Doe",
       address: "Doe street 12",
       postcode: "8200",
-      country: "Denmark"
+      country: "Denmark",
     },
     user: {
       id: 1,
@@ -46,9 +46,9 @@ const data = [
         contact_name: "John Doe",
         address: "Doe street 12",
         postcode: "8200",
-        country: "Denmark"
-      }
-    }
+        country: "Denmark",
+      },
+    },
   },
   {
     id: 2,
@@ -63,7 +63,7 @@ const data = [
       contact_name: "Jane Doe",
       address: "Jane street 12",
       postcode: "2500",
-      country: "Denmark"
+      country: "Denmark",
     },
     user: {
       id: 2,
@@ -77,16 +77,20 @@ const data = [
         contact_name: "Jane Doe",
         address: "Jane street 12",
         postcode: "2500",
-        country: "Denmark"
-      }
-    }
-  }
+        country: "Denmark",
+      },
+    },
+  },
 ];
 
-interface IProps extends RouteComponentProps<DetailsParams>, WithTranslation {}
+interface Props {}
 
-const chatRecordsScreen = ({ history, match, t }: IProps) => {
-  const [chatRecords, setchatRecords] = useState<TestRecordType[]>();
+const chatRecordsScreen: FunctionComponent<Props> = ({}) => {
+  const { t } = useTranslation();
+  const history = useHistory();
+  const match = useRouteMatch<DetailsParams>();
+
+  const [chatRecords, setchatRecords] = useState<TestRecordType[] | []>([]);
   const [showModal, setShowModal] = useState(false);
 
   const detailsPath = PRIVATE_ROUTES.CHAT_RECORD_DETAILS_SCREEN.path;
@@ -166,4 +170,4 @@ const chatRecordsScreen = ({ history, match, t }: IProps) => {
   );
 };
 
-export default withTranslation()(memo(chatRecordsScreen));
+export default chatRecordsScreen;

@@ -1,4 +1,4 @@
-import DashboardScreen from "DashboardScreen/DashboardScreen";
+import DashboardScreen from "DashboardScreen/ChatBoxScreen";
 import { IMenuItemType } from "types/routerType";
 
 /**
@@ -10,5 +10,5 @@ export const DASHBOARD_SCREEN: IMenuItemType = {
   path: "/dashboard",
   component: DashboardScreen,
   title: "Dashboard",
-  icon: "appstore"
+  icon: "appstore",
 };
