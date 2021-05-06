@@ -1,11 +1,6 @@
 @import "src/ui/colors";
 @import "src/ui/variables";
 
-.modal {
-  max-width: 1200px;
-  width: 80% !important; // Necessary in order to override Ant Design inline styles
-}
-
 .row {
   border-bottom: 1px solid $neutral-grey;
   padding-bottom: $spacing-small;

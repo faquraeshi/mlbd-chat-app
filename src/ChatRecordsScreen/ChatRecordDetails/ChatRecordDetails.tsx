@@ -21,7 +21,7 @@ const ChatRecordDetails = ({ close, data, show, t }: IProps) => {
     <Modal
       title={t("chatRecords.details")}
       visible={show}
-      className={styles.modal}
+      width={"80%"}
       onCancel={() => close()}
       footer={
         <Button type="primary" onClick={() => close()}>
