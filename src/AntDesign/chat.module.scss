@@ -3,10 +3,28 @@
 .chat {
   &Main {
     border: 1px solid #eee;
+    bottom: 0;
     display: flex;
     height: 800px;
     margin: auto;
-    // width: 900px;
+    width: 900px;
+
+    &Fullscreen {
+      height: calc(100% - 30px);
+      left: 0;
+      position: fixed;
+      width: 100%;
+      z-index: 99;
+
+      .chatClose {
+        top: -32px;
+
+        button {
+          font-size: 22px;
+          height: 30px;
+        }
+      }
+    }
   }
 
   &Left {
@@ -246,11 +264,11 @@
       background: #fff;
       align-items: center;
       border-radius: 0;
-      // display: inline-flex;
       margin: 0 0 0 1px;
       padding: 0 6px;
       color: #919191;
       height: 24px;
+      transition: 0s;
     }
   }
 

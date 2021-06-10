@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { memo, useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./chat.module.scss";
 import { Row, Col, Avatar, Typography, Icon, Button, List, Input } from "antd";
@@ -25,8 +25,20 @@ const newData = [
 const buttons = ["delete", "edit", "rollback", "smile-o", "save", "pushpin"];
 
 const AntDesignScreen = () => {
+  const [fullScreen, setFullScreen] = useState(false);
+
+  const toggleFullScreen = () => {
+    setFullScreen(!fullScreen);
+  };
+
   return (
-    <Row className={styles.chatMain}>
+    <Row
+      className={
+        fullScreen
+          ? styles.chatMain + " " + styles.chatMainFullscreen
+          : styles.chatMain
+      }
+    >
       <Col span={8} className={styles.chatLeft}>
         <Row className={styles.chatLeftHeader}>
           <Avatar size={50} icon="user" className={styles.chatLeftAvatar} />
@@ -138,8 +150,12 @@ const AntDesignScreen = () => {
           <Button type="link">
             <Icon type="minus" />
           </Button>
-          <Button type="link">
-            <Icon type="fullscreen" />
+          <Button type="link" onClick={toggleFullScreen}>
+            {fullScreen ? (
+              <Icon type="fullscreen-exit" />
+            ) : (
+              <Icon type="fullscreen" />
+            )}
           </Button>
           <Button type="link">
             <Icon type="close" />
