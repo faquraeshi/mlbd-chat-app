@@ -1,6 +1,22 @@
 /* Styles start Mamun */
 
 .chat {
+  &Start {
+    bottom: 0;
+    position: fixed;
+    right: 0;
+
+    button {
+      color: #0e3752;
+      font-size: 50px;
+      height: auto;
+
+      &:hover {
+        color: lighten(#0e3752, 10);
+      }
+    }
+  }
+
   &Main {
     border: 1px solid #eee;
     bottom: 0;
