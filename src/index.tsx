@@ -1,49 +1,21 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter } from "react-router-dom";
-import "./index.scss";
-import * as serviceWorker from "./serviceWorker";
-import Router from "./routers/Router";
-import "./localization/localization";
-import { AppContainer } from "react-hot-loader";
-import store from "./redux/store";
-import { getPersistor } from "@rematch/persist";
-import { Provider } from "react-redux";
-import { PersistGate } from "redux-persist/integration/react";
-
-interface Props {}
-
-const App: React.FC<Props> = () => {
-
-  const persistor = getPersistor();
-
-  const onBeforeLift = async () => {
-  };
-
-  return (
-    <AppContainer>
-      <PersistGate
-        onBeforeLift={onBeforeLift}
-        persistor={persistor}
-      >
-        <BrowserRouter>
-      <Router />
-    </BrowserRouter>
-      </PersistGate>
-      
-    </AppContainer>
-    
-  );
-}
-
-const element = document.getElementById("root");
-
-if (!element) throw new Error("Couldn't find element with id root");
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import { store } from './app/store';
+import { Provider } from 'react-redux';
+import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-<Provider store={store}>
-  <App />
-</Provider>, 
-element);
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
 
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
