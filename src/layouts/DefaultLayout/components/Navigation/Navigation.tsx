@@ -1,5 +1,6 @@
 import React, { memo } from "react";
-import { Icon, Menu } from "antd";
+import { Menu } from "antd";
+import Icon from "@ant-design/icons";
 import { Link, RouteComponentProps } from "react-router-dom";
 import { IMenuItemType } from "types/routerType";
 import styles from "./Navigation.module.scss";

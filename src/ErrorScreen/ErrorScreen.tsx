@@ -1,5 +1,6 @@
 import React, { memo } from "react";
-import { Result, Icon } from "antd";
+import { Result } from "antd";
+import Icon from "@ant-design/icons";
 import { ClientErrors } from "constants/apiConst";
 import { withTranslation, WithTranslation } from "react-i18next";
 
