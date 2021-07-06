@@ -1,7 +1,8 @@
 import React, { memo, useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./chat.module.scss";
-import { Row, Col, Avatar, Typography, Icon, Button, List, Input } from "antd";
+import { Row, Col, Avatar, Typography, Button, List, Input } from "antd";
+import { AppIcons, msgActButtons } from "./AppIcons";
 
 const { Title } = Typography;
 const { TextArea } = Input;
@@ -21,8 +22,6 @@ const newData = [
   "Chitchat Group",
   "Financial Documents",
 ];
-
-const buttons = ["delete", "edit", "rollback", "smile-o", "save", "pushpin"];
 
 const AntDesignScreen = () => {
   const [fullScreen, setFullScreen] = useState(false);
@@ -54,7 +53,7 @@ const AntDesignScreen = () => {
                   ></span>
                   <span className={styles.chatStatusText}>
                     Busy
-                    <Icon type="caret-down" />
+                    {AppIcons.CaretDownOutlined}
                   </span>
                 </Col>
               </Col>
@@ -62,13 +61,11 @@ const AntDesignScreen = () => {
 
             <Row className={styles.chatLeftDetails}>
               <Title level={4} className={styles.chatLeftDetailsHeader}>
-                <Icon type="caret-down" />
+                {AppIcons.CaretDownOutlined}
                 <span className={styles.chatLeftDetailsHeaderText}>
                   Direct Messages
                 </span>
-                <Button type="link">
-                  <Icon type="plus" />
-                </Button>
+                <Button type="link" icon={AppIcons.PlusOutlined}></Button>
               </Title>
 
               <Row className={styles.chatNameList}>
@@ -93,7 +90,7 @@ const AntDesignScreen = () => {
                 }
               >
                 <Link to="/">
-                  <Icon type="message" />
+                  {AppIcons.MessageOutlined}
                   <span className={styles.chatLeftDetailsHeaderText}>
                     Threads
                   </span>
@@ -108,7 +105,7 @@ const AntDesignScreen = () => {
                 }
               >
                 <Link to="/">
-                  <Icon type="edit" />
+                  {AppIcons.EditOutlined}
                   <span className={styles.chatLeftDetailsHeaderText}>
                     Draft
                   </span>
@@ -123,13 +120,11 @@ const AntDesignScreen = () => {
                 }
               >
                 <Link to="/">
-                  <Icon type="caret-down" />
+                  {AppIcons.CaretDownOutlined}
                   <span className={styles.chatLeftDetailsHeaderText}>
                     Groups
                   </span>
-                  <Button type="link">
-                    <Icon type="plus" />
-                  </Button>
+                  <Button type="link" icon={AppIcons.PlusOutlined}></Button>
                 </Link>
               </Row>
 
@@ -139,7 +134,7 @@ const AntDesignScreen = () => {
                   renderItem={item => (
                     <List.Item>
                       <Link to="/">
-                        <Icon type="lock" />
+                        {AppIcons.LockOutlined}
                         {item}
                         <span className={styles.chatMessageCount}>18</span>
                       </Link>
@@ -153,18 +148,18 @@ const AntDesignScreen = () => {
           <Col span={16} className={styles.chatRight}>
             <Row className={styles.chatClose}>
               <Button type="link" onClick={() => setChat(!chat)}>
-                <Icon type="minus" />
+                {AppIcons.MinusOutlined}
               </Button>
-              <Button type="link" onClick={() => setFullScreen(!fullScreen)}>
-                {fullScreen ? (
-                  <Icon type="fullscreen-exit" />
-                ) : (
-                  <Icon type="fullscreen" />
-                )}
-              </Button>
-              <Button type="link">
-                <Icon type="close" />
-              </Button>
+              <Button
+                type="link"
+                onClick={() => setFullScreen(!fullScreen)}
+                icon={
+                  fullScreen
+                    ? AppIcons.FullscreenExitOutlined
+                    : AppIcons.FullscreenOutlined
+                }
+              ></Button>
+              <Button type="link">{AppIcons.CloseOutlined}</Button>
             </Row>
 
             <Row className={styles.chatRightHeader}>
@@ -189,18 +184,10 @@ const AntDesignScreen = () => {
               </Col>
 
               <Col className={styles.chatRightHeaderAction}>
-                <Button type="link">
-                  <Icon type="search" />
-                </Button>
-                <Button type="link">
-                  <Icon type="phone" theme="filled" />
-                </Button>
-                <Button type="link">
-                  <Icon type="user-add" />
-                </Button>
-                <Button type="link">
-                  <Icon type="info-circle" theme="filled" />
-                </Button>
+                <Button type="link" icon={AppIcons.SearchOutlined}></Button>
+                <Button type="link" icon={AppIcons.PhoneFilled}></Button>
+                <Button type="link" icon={AppIcons.UserAddOutlined}></Button>
+                <Button type="link" icon={AppIcons.InfoCircleFilled}></Button>
               </Col>
             </Row>
 
@@ -221,16 +208,14 @@ const AntDesignScreen = () => {
                   </Col>
 
                   <Col className={styles.chatMessageAction}>
-                    <Icon type="more" />
+                    {AppIcons.MoreOutlined}
 
                     <List
                       className={styles.chatMessageActionItems}
-                      dataSource={buttons}
+                      dataSource={msgActButtons}
                       renderItem={item => (
                         <List.Item>
-                          <Button type="link">
-                            <Icon type={item} />
-                          </Button>
+                          <Button type="link" icon={item.ico}></Button>
                         </List.Item>
                       )}
                     />
@@ -259,16 +244,14 @@ const AntDesignScreen = () => {
                   </Col>
 
                   <Col className={styles.chatMessageAction}>
-                    <Icon type="more" />
+                    {AppIcons.MoreOutlined}
 
                     <List
                       className={styles.chatMessageActionItems}
-                      dataSource={buttons}
+                      dataSource={msgActButtons}
                       renderItem={item => (
                         <List.Item>
-                          <Button type="link">
-                            <Icon type={item} />
-                          </Button>
+                          <Button type="link" icon={item.ico}></Button>
                         </List.Item>
                       )}
                     />
@@ -300,16 +283,14 @@ const AntDesignScreen = () => {
                   </Col>
 
                   <Col className={styles.chatMessageAction}>
-                    <Icon type="more" />
+                    {AppIcons.MoreOutlined}
 
                     <List
                       className={styles.chatMessageActionItems}
-                      dataSource={buttons}
+                      dataSource={msgActButtons}
                       renderItem={item => (
                         <List.Item>
-                          <Button type="link">
-                            <Icon type={item} />
-                          </Button>
+                          <Button type="link" icon={item.ico}></Button>
                         </List.Item>
                       )}
                     />
@@ -332,16 +313,14 @@ const AntDesignScreen = () => {
                   </Col>
 
                   <Col className={styles.chatMessageAction}>
-                    <Icon type="more" />
+                    {AppIcons.MoreOutlined}
 
                     <List
                       className={styles.chatMessageActionItems}
-                      dataSource={buttons}
+                      dataSource={msgActButtons}
                       renderItem={item => (
                         <List.Item>
-                          <Button type="link">
-                            <Icon type={item} />
-                          </Button>
+                          <Button type="link" icon={item.ico}></Button>
                         </List.Item>
                       )}
                     />
@@ -366,16 +345,14 @@ const AntDesignScreen = () => {
                   </Col>
 
                   <Col className={styles.chatMessageAction}>
-                    <Icon type="more" />
+                    {AppIcons.MoreOutlined}
 
                     <List
                       className={styles.chatMessageActionItems}
-                      dataSource={buttons}
+                      dataSource={msgActButtons}
                       renderItem={item => (
                         <List.Item>
-                          <Button type="link">
-                            <Icon type={item} />
-                          </Button>
+                          <Button type="link" icon={item.ico}></Button>
                         </List.Item>
                       )}
                     />
@@ -404,16 +381,14 @@ const AntDesignScreen = () => {
                   </Col>
 
                   <Col className={styles.chatMessageAction}>
-                    <Icon type="more" />
+                    {AppIcons.MoreOutlined}
 
                     <List
                       className={styles.chatMessageActionItems}
-                      dataSource={buttons}
+                      dataSource={msgActButtons}
                       renderItem={item => (
                         <List.Item>
-                          <Button type="link">
-                            <Icon type={item} />
-                          </Button>
+                          <Button type="link" icon={item.ico}></Button>
                         </List.Item>
                       )}
                     />
@@ -441,16 +416,14 @@ const AntDesignScreen = () => {
                   </Col>
 
                   <Col className={styles.chatMessageAction}>
-                    <Icon type="more" />
+                    {AppIcons.MoreOutlined}
 
                     <List
                       className={styles.chatMessageActionItems}
-                      dataSource={buttons}
+                      dataSource={msgActButtons}
                       renderItem={item => (
                         <List.Item>
-                          <Button type="link">
-                            <Icon type={item} />
-                          </Button>
+                          <Button type="link" icon={item.ico}></Button>
                         </List.Item>
                       )}
                     />
@@ -473,16 +446,14 @@ const AntDesignScreen = () => {
                   </Col>
 
                   <Col className={styles.chatMessageAction}>
-                    <Icon type="more" />
+                    {AppIcons.MoreOutlined}
 
                     <List
                       className={styles.chatMessageActionItems}
-                      dataSource={buttons}
+                      dataSource={msgActButtons}
                       renderItem={item => (
                         <List.Item>
-                          <Button type="link">
-                            <Icon type={item} />
-                          </Button>
+                          <Button type="link" icon={item.ico}></Button>
                         </List.Item>
                       )}
                     />
@@ -505,16 +476,14 @@ const AntDesignScreen = () => {
                   </Col>
 
                   <Col className={styles.chatMessageAction}>
-                    <Icon type="more" />
+                    {AppIcons.MoreOutlined}
 
                     <List
                       className={styles.chatMessageActionItems}
-                      dataSource={buttons}
+                      dataSource={msgActButtons}
                       renderItem={item => (
                         <List.Item>
-                          <Button type="link">
-                            <Icon type={item} />
-                          </Button>
+                          <Button type="link" icon={item.ico}></Button>
                         </List.Item>
                       )}
                     />
@@ -536,21 +505,13 @@ const AntDesignScreen = () => {
                   </Col>
 
                   <Col className={styles.chatComposeActionsAttachments}>
-                    <Button type="link">
-                      <Icon type="link" />
-                    </Button>
+                    <Button type="link" icon={AppIcons.LinkOutlined}></Button>
 
-                    <Button type="link">
-                      <Icon type="like" theme="filled" />
-                    </Button>
+                    <Button type="link" icon={AppIcons.LikeFilled}></Button>
 
-                    <Button type="link">
-                      <Icon type="camera" theme="filled" />
-                    </Button>
+                    <Button type="link" icon={AppIcons.CameraFilled}></Button>
 
-                    <Button type="link">
-                      <Icon type="upload" />
-                    </Button>
+                    <Button type="link" icon={AppIcons.UploadOutlined}></Button>
                   </Col>
                 </Col>
               </form>
@@ -560,7 +521,7 @@ const AntDesignScreen = () => {
       ) : (
         <Row className={styles.chatStart}>
           <Button type="link" onClick={() => setChat(!chat)}>
-            <Icon type="message" theme="filled" />
+            {AppIcons.MessageFilled}
           </Button>
         </Row>
       )}
