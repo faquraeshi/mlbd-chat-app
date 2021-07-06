@@ -10,5 +10,4 @@ export const DASHBOARD_SCREEN: IMenuItemType = {
   path: "/dashboard",
   component: DashboardScreen,
   title: "Dashboard",
-  icon: "appstore"
 };
