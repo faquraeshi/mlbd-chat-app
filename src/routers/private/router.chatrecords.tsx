@@ -10,7 +10,6 @@ export const CHAT_RECORDS_SCREEN: IMenuItemType = {
   path: "/chat-records",
   component: ChatRecordsScreen,
   title: "Chat Records",
-  icon: "bars"
 };
 
 /**
@@ -18,5 +17,5 @@ export const CHAT_RECORDS_SCREEN: IMenuItemType = {
  */
 export const CHAT_RECORD_DETAILS_SCREEN: IMenuItemType = {
   ...CHAT_RECORDS_SCREEN,
-  path: CHAT_RECORDS_SCREEN.path + "/" + RouterParameters.ID
+  path: CHAT_RECORDS_SCREEN.path + "/" + RouterParameters.ID,
 };
