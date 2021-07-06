@@ -9,5 +9,4 @@ export const CHAT_TYPES_SCREEN: IMenuItemType = {
   path: "/chat-types",
   component: ChatTypesScren,
   title: "Chat Types",
-  icon: "build"
 };

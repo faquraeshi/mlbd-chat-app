@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { Icon, Menu } from "antd";
+import { Menu } from "antd";
 import { Link, RouteComponentProps } from "react-router-dom";
 import { IMenuItemType } from "types/routerType";
 import styles from "./Navigation.module.scss";
@@ -35,7 +35,6 @@ const Navigation = ({ location, navigation }: IProps) => {
             key={item.path}
             title={
               <span>
-                <Icon type={item.icon} />
                 <span>{item.title}</span>
               </span>
             }
@@ -51,7 +50,6 @@ const Navigation = ({ location, navigation }: IProps) => {
         ) : (
           <MenuItem key={item.path}>
             <Link to={item.path}>
-              <Icon type={item.icon} />
               <span>{item.title}</span>
             </Link>
           </MenuItem>
