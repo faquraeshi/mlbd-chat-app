@@ -1,4 +1,3 @@
-import React, { Component } from "react";
 import Select from "react-select";
 
 function SelectField(props: any) {
@@ -16,8 +15,6 @@ function SelectField(props: any) {
 
   const {
     id,
-    name,
-    label,
     placeholder,
     options,
     value,

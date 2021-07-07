@@ -35,10 +35,10 @@ const authInterceptor = async (request: AxiosRequestConfig) => {
 };
 
 // /** Setup an API instance */
-// export const api = axios.create({
-//   baseURL: ENV.API_HOST,
-//   headers: { "Content-Type": "application/json" },
-// });
+export const api = axios.create({
+  baseURL: ENV.API_HOST,
+  headers: { "Content-Type": "application/json" },
+});
 
 export const apiAuth = axios.create({
   baseURL: ENV.API_HOST_LOGIN,
@@ -46,3 +46,4 @@ export const apiAuth = axios.create({
 });
 
 apiAuth.interceptors.request.use(authInterceptor);
+api.interceptors.request.use(authInterceptor);

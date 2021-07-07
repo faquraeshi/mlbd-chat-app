@@ -26,7 +26,6 @@ export const loginUser = createAsyncThunk(
       (res) => {
         console.log(res);
         cookie.save(AUTH_ACCESS_TOKEN, res.data.token, {});
-
         return res.data;
       },
       (err) => err.message
