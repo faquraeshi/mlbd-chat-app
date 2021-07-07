@@ -32,7 +32,7 @@ const data = [
       contact_name: "John Doe",
       address: "Doe street 12",
       postcode: "8200",
-      country: "Denmark"
+      country: "Denmark",
     },
     user: {
       id: 1,
@@ -46,9 +46,9 @@ const data = [
         contact_name: "John Doe",
         address: "Doe street 12",
         postcode: "8200",
-        country: "Denmark"
-      }
-    }
+        country: "Denmark",
+      },
+    },
   },
   {
     id: 2,
@@ -63,7 +63,7 @@ const data = [
       contact_name: "Jane Doe",
       address: "Jane street 12",
       postcode: "2500",
-      country: "Denmark"
+      country: "Denmark",
     },
     user: {
       id: 2,
@@ -77,10 +77,10 @@ const data = [
         contact_name: "Jane Doe",
         address: "Jane street 12",
         postcode: "2500",
-        country: "Denmark"
-      }
-    }
-  }
+        country: "Denmark",
+      },
+    },
+  },
 ];
 
 interface IProps extends RouteComponentProps<DetailsParams>, WithTranslation {}
@@ -129,7 +129,7 @@ const chatRecordsScreen = ({ history, match, t }: IProps) => {
 
   return (
     <>
-      <Row type="flex" gutter={15}>
+      <Row gutter={15}>
         <Col span={4}>
           <Select
             placeholder={t("chatRecords.selectCustomer")}

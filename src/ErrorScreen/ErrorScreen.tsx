@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { Result, Icon } from "antd";
+import { Result } from "antd";
 import { ClientErrors } from "constants/apiConst";
 import { withTranslation, WithTranslation } from "react-i18next";
 
@@ -12,7 +12,6 @@ const ErrorScreen = ({ t, status }: IProps) => {
   if (status === ClientErrors.FORBIDDEN) {
     return (
       <Result
-        icon={<Icon type="lock" />}
         title={t("clientErrors.forbiddenTitle")}
         subTitle={t("clientErrors.forbidden")}
       />
@@ -20,7 +19,6 @@ const ErrorScreen = ({ t, status }: IProps) => {
   } else {
     return (
       <Result
-        icon={<Icon type="question-circle" />}
         title={t("clientErrors.notFoundTitle")}
         subTitle={t("clientErrors.notFound")}
       />
