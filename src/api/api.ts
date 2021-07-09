@@ -16,6 +16,28 @@ const authInterceptor = async (request: AxiosRequestConfig) => {
   const { accessToken } = getTokens();
   console.log(accessToken);
 
+  console.log(request);
+  const isAnonymous = anonymousEndpoints.some((endpoint) =>
+    request.url?.startsWith(endpoint)
+  );
+
+  if (accessToken) {
+    request.headers.Authorization = `bearer ${accessToken}`;
+    return request;
+  }
+
+  if (!accessToken && !isAnonymous) {
+    // TODO: handle when UNAUTHORIZED;
+    // return Promise.reject(ApiStatusCodes.UNAUTHORIZED);
+    return request;
+  }
+
+  return request;
+};
+
+const authInterceptor2 = async (request: AxiosRequestConfig) => {
+  const { accessToken } = getTokens();
+
   const isAnonymous = anonymousEndpoints.some((endpoint) =>
     request.url?.startsWith(endpoint)
   );

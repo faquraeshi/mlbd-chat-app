@@ -2,9 +2,9 @@ import { Redirect } from "react-router";
 import cookie from "react-cookies";
 
 import Login from "../features/auth/components/Login";
-import MainWindow from "../features/chat-window/components/MainWindow";
+import MainLayout from "../features/chat-window/MainLayout";
+import MainWindow from "../features/chat-window/MainWindow";
 import { AUTH_ACCESS_TOKEN } from "../features/auth/constants/auth.keys";
-// import { IRouteProps } from "./types";
 import { RenderRoutes } from ".";
 
 const ROUTES = [
@@ -24,13 +24,13 @@ const ROUTES = [
         path: "/app",
         key: "APP_ROOT",
         exact: true,
-        component: MainWindow,
+        component: MainLayout,
       },
       {
         path: "/app/chat",
         key: "APP_CHAT",
         exact: true,
-        component: () => <div>chat page</div>,
+        component: MainWindow,
       },
     ],
   },

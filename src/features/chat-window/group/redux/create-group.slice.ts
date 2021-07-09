@@ -1,11 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-import createGroupChat from "../api/chat.api";
-import { CreateGroupChat } from "../types/chat.types";
+import createGroupChat from "../api/group-chat.api";
+import { ICreateGroupChat } from "../types/groput-chat.types";
 
 export const creatGroupSlice = createAsyncThunk(
   "create/group",
-  (credentials: CreateGroupChat, { dispatch }) =>
+  (credentials: ICreateGroupChat, { dispatch }) =>
     createGroupChat(credentials).then(
       (res) => {
         console.log(res);

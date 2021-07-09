@@ -1,11 +1,14 @@
 import ROUTES from "./routes/Routes";
 import { RenderRoutes } from "./routes";
+import MainLayout from "./features/chat-window/MainLayout";
+
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      {console.log(ROUTES)}
       <RenderRoutes routes={ROUTES} />
+      {/* <MainLayout /> */}
     </div>
   );
 }
