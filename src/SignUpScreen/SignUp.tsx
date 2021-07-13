@@ -14,7 +14,7 @@ const SignUpScreen = () => {
         name="signup"
         layout="vertical"
         labelCol={{ span: 4 }}
-        wrapperCol={{ span: 12 }}
+        wrapperCol={{ span: 8 }}
         initialValues={{ remember: true }}
       >
         <Form.Item
@@ -97,11 +97,7 @@ const SignUpScreen = () => {
 
       <Anchor affix={false}>
         Already have an account? Then,
-        <Link
-          href="/ant/design"
-          title="Sign in"
-          className={styles.chInlineFlex}
-        />
+        <Link href="/login" title="Sign in" className={styles.chInlineFlex} />
       </Anchor>
     </>
   );

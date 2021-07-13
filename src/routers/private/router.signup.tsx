@@ -2,7 +2,7 @@ import SignUp from "SignUpScreen/SignUp";
 import { IMenuItemType } from "types/routerType";
 
 /**
- * Ant Design Screen
+ * Sign Up Screen
  */
 
 export const SIGN_UP_SCREEN: IMenuItemType = {

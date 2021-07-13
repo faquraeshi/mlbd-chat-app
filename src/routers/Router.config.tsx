@@ -3,6 +3,7 @@ import * as CHAT_RECORDS_ROUTES from "./private/router.chatrecords";
 import * as CHAT_TYPES_ROUTES from "./private/router.chattypes";
 import * as ANT_DESIGN_TYPES_ROUTES from "./private/router.antdesign";
 import * as SIGN_UP_SCREEN_TYPES_ROUTES from "./private/router.signup";
+import * as LOGIN_SCREEN_TYPES_ROUTES from "./private/router.login";
 
 /** Private Routes */
 export const PRIVATE_ROUTES = {
@@ -11,6 +12,7 @@ export const PRIVATE_ROUTES = {
   ...CHAT_TYPES_ROUTES,
   ...ANT_DESIGN_TYPES_ROUTES,
   ...SIGN_UP_SCREEN_TYPES_ROUTES,
+  ...LOGIN_SCREEN_TYPES_ROUTES,
 };
 
 /** Side Navigation Items */
@@ -20,4 +22,5 @@ export const NAVIGATION = [
   CHAT_TYPES_ROUTES.CHAT_TYPES_SCREEN,
   ANT_DESIGN_TYPES_ROUTES.ANT_DESIGN_SCREEN,
   SIGN_UP_SCREEN_TYPES_ROUTES.SIGN_UP_SCREEN,
+  LOGIN_SCREEN_TYPES_ROUTES.LOGIN_SCREEN,
 ];
