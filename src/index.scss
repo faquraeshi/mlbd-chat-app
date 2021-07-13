@@ -22,3 +22,12 @@ img {
 .chTable {
   display: table;
 }
+.chInline {
+  display: inline;
+  &Block {
+    display: inline-block;
+  }
+  &Flex {
+    display: inline-flex;
+  }
+}
