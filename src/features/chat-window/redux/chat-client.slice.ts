@@ -38,6 +38,7 @@ export const exClientChat = () => {
     pusherOptions,
   });
   console.log(initialClient, tokenProvider);
+  // initialClient.on;/
 
   initialClient.connect().then(() => {
     console.log(initialClient);
