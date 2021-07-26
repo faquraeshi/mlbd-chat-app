@@ -2,6 +2,7 @@ import { Redirect } from "react-router";
 import cookie from "react-cookies";
 
 import Login from "../features/auth/components/Login";
+import Register from "../features/auth/components/Register";
 import MainLayout from "../features/chat-window/MainLayout";
 import MainWindow from "../features/chat-window/MainWindow";
 import { AUTH_ACCESS_TOKEN } from "../features/auth/constants/auth.keys";
@@ -10,6 +11,7 @@ import Chats from "../features/chat-window/group/screens/Chats";
 
 const ROUTES = [
   { path: "/", key: "ROOT", exact: true, component: Login },
+  { path: "/register", key: "REG", component: Register },
   {
     path: "/app",
     key: "APP",
